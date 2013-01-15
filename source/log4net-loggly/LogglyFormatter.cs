@@ -42,6 +42,7 @@ namespace log4net.loggly
 			       		level = loggingEvent.Level.DisplayName,
 			       		time = loggingEvent.TimeStamp.ToString("yyyyMMdd HHmmss.fff zzz"),
 						machine = Environment.MachineName,
+                        logger = loggingEvent.LoggerName,
 						process = _currentProcess.ProcessName,
 						thread = loggingEvent.ThreadName,
 						message = loggingEvent.MessageObject,
