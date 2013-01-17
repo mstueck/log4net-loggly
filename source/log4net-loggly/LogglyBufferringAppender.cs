@@ -1,5 +1,6 @@
 using log4net.Appender;
 using log4net.Core;
+using System;
 
 namespace log4net.loggly
 {
@@ -25,7 +26,10 @@ namespace log4net.loggly
 
 		protected override void SendBuffer(LoggingEvent[] loggingEvents)
 		{
-			Client.Send(Config, Config.InputKey, Formatter.ToJson(loggingEvents));
+            Array.ForEach(loggingEvents, logEvent =>
+            {
+                Client.Send(Config, Config.InputKey, Formatter.ToJson(logEvent));
+            });
 		}
 	}
 }
