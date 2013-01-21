@@ -9,6 +9,11 @@ namespace log4net.loggly
 {
 	public class LogglyFormatter : ILogglyFormatter
 	{
+        public LogglyFormatter()
+        {
+            JsConfig.ExcludeTypeInfo = true;
+        }
+
 		public virtual void AppendAdditionalLoggingInformation(ILogglyAppenderConfig config, LoggingEvent loggingEvent)
 		{
 		}
